@@ -1,0 +1,38 @@
+[   0.0s] Loading studentInfo ...
+[   0.1s] studentInfo shape: (32593, 12) classes: {'Pass': 12361, 'Withdrawn': 10156, 'Fail': 7052, 'Distinction': 3024}
+[   0.1s] Positive(Pass/Distinction): 15385  Negative: 17208
+[   0.1s] Loading studentRegistration ...
+[   0.2s] Loading assessments + studentAssessment ...
+[  14.1s] Aggregating VLE (chunked, 432MB) ...
+[  26.8s] VLE rows scanned: 10655280  unique enrollment units: 29228
+[  26.9s] VLE features merged. vle_total_clicks mean: 1215.1
+[  26.9s] Feature matrix: (32593, 46)  positivity rate: 0.472
+[  26.9s] Training base models with 5-fold OOF ...
+[  26.9s]   -> LogisticRegression
+[  27.9s]   -> RandomForest
+[  44.6s]   -> XGBoost
+[  51.1s]   -> LightGBM
+[  55.8s]   -> CatBoost
+[  81.1s] Base OOF done. Base AUCs: {'LogisticRegression': 0.9501, 'RandomForest': 0.9688, 'XGBoost': 0.9722, 'LightGBM': 0.9718, 'CatBoost': 0.9729}
+[ 125.4s] 
+=== FUSION RESULTS (5-fold OOF) ===
+[ 125.4s]   SoftVoting             Acc=0.9144 F1=0.9128 AUC=0.9716 Rec=0.9492 Prec=0.8790
+[ 125.4s]   Stacking(LR)           Acc=0.9155 F1=0.9129 AUC=0.9727 Rec=0.9383 Prec=0.8889
+[ 125.4s]   AttentionFusion(MLP)   Acc=0.9150 F1=0.9128 AUC=0.9727 Rec=0.9423 Prec=0.8851
+[ 125.4s]   StaticAttnWeighted     Acc=0.9144 F1=0.9128 AUC=0.9716 Rec=0.9493 Prec=0.8790
+[ 125.4s] Computing SHAP on XGBoost ...
+[ 138.2s] Top SHAP features:
+                              feature  mean_abs_shap
+                  n_assess_attempted       2.876642
+                          mean_score       1.176791
+                     vle_active_days       0.874804
+                         first_score       0.341703
+                 mean_days_submitted       0.288914
+                    vle_total_clicks       0.213252
+highest_education_Lower Than A Level       0.145482
+                     studied_credits       0.124301
+                         early_score       0.088818
+                   date_registration       0.081068
+[ 138.2s] Ablation study ...
+[ 352.9s] Ablation fusion AUC: {'static_only_AUC': 0.6564530717624667, 'static_assess_AUC': 0.9695737688496421, 'full_AUC': 0.9726510724958516}
+[ 353.0s] Saved summary.json. ALL DONE in 353.0 s

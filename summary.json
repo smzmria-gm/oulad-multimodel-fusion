@@ -1,0 +1,47 @@
+{
+  "n_students_enrollments": 32593,
+  "positivity_rate": 0.472,
+  "features_used_vle": true,
+  "base_oof_auc": {
+    "LogisticRegression": 0.9501,
+    "RandomForest": 0.9688,
+    "XGBoost": 0.9722,
+    "LightGBM": 0.9718,
+    "CatBoost": 0.9729
+  },
+  "fusion": {
+    "SoftVoting": {
+      "accuracy": 0.9144,
+      "f1": 0.9128,
+      "auc": 0.9716,
+      "recall": 0.9492,
+      "precision": 0.879
+    },
+    "Stacking(LR)": {
+      "accuracy": 0.9155,
+      "f1": 0.9129,
+      "auc": 0.9727,
+      "recall": 0.9383,
+      "precision": 0.8889
+    },
+    "AttentionFusion(MLP)": {
+      "accuracy": 0.915,
+      "f1": 0.9128,
+      "auc": 0.9727,
+      "recall": 0.9423,
+      "precision": 0.8851
+    },
+    "StaticAttnWeighted": {
+      "accuracy": 0.9144,
+      "f1": 0.9128,
+      "auc": 0.9716,
+      "recall": 0.9493,
+      "precision": 0.879
+    }
+  },
+  "ablation_fusion_auc": {
+    "static_only_AUC": 0.6565,
+    "static_assess_AUC": 0.9696,
+    "full_AUC": 0.9727
+  }
+}

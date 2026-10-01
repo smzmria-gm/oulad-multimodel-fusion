@@ -1,0 +1,16 @@
+feature,mean_abs_shap
+n_assess_attempted,2.876642
+mean_score,1.1767913
+vle_active_days,0.87480444
+first_score,0.34170306
+mean_days_submitted,0.2889143
+vle_total_clicks,0.21325172
+highest_education_Lower Than A Level,0.14548193
+studied_credits,0.12430124
+early_score,0.088817865
+date_registration,0.08106806
+gender_F,0.071506515
+num_of_prev_attempts,0.03141612
+imd_band_80-90%,0.028362904
+age_band_35-55,0.027113918
+imd_band_0-10%,0.026772525
